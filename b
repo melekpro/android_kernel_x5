@@ -86,19 +86,20 @@ function BINFO() {
 }
 
 function TOOLCHAIN() {
-        echo "${RED}####################################"
-        echo "${CYN}#       TOOLCHAIN NOT FOUND!       #"
-        echo "${YLW}####################################"
+if [[ ! -d gtc ]]; then 
+    echo "${RED}####################################"
+    echo "${CYN}#       TOOLCHAIN NOT FOUND!       #"
+    echo "${YLW}####################################"
 clear
-        sudo rm -rf linaro
-        echo "${YLW}####################################"
-        echo "${GRN}#       CLONING TOOLCHAIN          #"
-        echo "${YLW}####################################"
-        git clone -q https://github.com/MrSaMaDo/linaro-5.5.0.git linaro
-        export ARCH=arm CROSS_COMPILE=$PWD/linaro/bin/arm-linux-gnueabi-
-         
-        export ARCH=arm CROSS_COMPILE=$PWD/linaro/bin/arm-linux-gnueabi-
-
+    sudo rm -rf linaro
+    echo "${YLW}####################################"
+    echo "${GRN}#       CLONING TOOLCHAIN          #"
+    echo "${YLW}####################################"
+    git clone -q https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/arm/arm-eabi-4.8 gtc
+    export ARCH=arm CROSS_COMPILE=$PWD/gtc/bin/arm-eabi-
+else
+    export ARCH=arm CROSS_COMPILE=$PWD/gtc/bin/arm-eabi-
+fi
 }
 
 function BUILD() {
