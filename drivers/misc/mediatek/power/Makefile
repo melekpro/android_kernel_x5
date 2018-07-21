@@ -12,5 +12,5 @@
 #
 
 
-obj-y += $(subst ",,$(CONFIG_MTK_PLATFORM))/
+obj-y += $(subst ",,mt6580)/
 
