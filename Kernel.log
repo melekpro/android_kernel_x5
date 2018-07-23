@@ -14,33 +14,10 @@ make[2]: 'include/generated/mach-types.h' is up to date.
   LD      arch/arm/crypto/aes-arm-bs.o
   LD      arch/arm/crypto/built-in.o
 rm arch/arm/crypto/aesbs-core.S
-cameraisp drv by platform 
-*MTK_GPU_VERSION 1 = mali
-$CONFIG_MTK_GPU_COMMON_DVFS_SUPPORT is []
-*MTK_GPU_VERSION 2 = utgard
--= project path  ../drivers/misc/mediatek/imgsensor/src/mt6580/camera_project/x5_weg_i_m/ =-
-imgsensor drv by platform s5k5e2ya_mipi_raw s5k4e2gx_mipi_raw hi551_mipi_raw ov9760_mipi_raw gc2355_mipi_raw hi841_mipi_raw s5k5e2ya_mipi_raw s5k4e2gx_mipi_raw hi551_mipi_raw ov9760_mipi_raw gc2355_mipi_raw hi841_mipi_raw
-imgsensor drv by project 
-  LINK    vmlinux
-  LD      vmlinux.o
-  MODPOST vmlinux.o
-  GEN     .version
-  CHK     include/generated/compile.h
-  UPD     include/generated/compile.h
-  CC      init/version.o
-  LD      init/built-in.o
-  KSYM    .tmp_kallsyms1.o
-  KSYM    .tmp_kallsyms2.o
-  LD      vmlinux
-  SORTEX  vmlinux
-  SYSMAP  System.map
-  OBJCOPY arch/arm/boot/Image
-  Kernel: arch/arm/boot/Image is ready
-  GZIP    arch/arm/boot/compressed/piggy.gzip
-  AS      arch/arm/boot/compressed/piggy.gzip.o
-  LD      arch/arm/boot/compressed/vmlinux
-  OBJCOPY arch/arm/boot/zImage
-  Kernel: arch/arm/boot/zImage is ready
-  CAT     arch/arm/boot/zImage-dtb
-  Kernel: arch/arm/boot/zImage-dtb is ready
+  SHIPPED drivers/input/touchscreen/mediatek/ft5x0x/lib/ft_gesture_32bit_lib_v1.0_20140820.a
+  LD      drivers/input/touchscreen/mediatek/ft5x0x/built-in.o
+  LD      drivers/input/touchscreen/mediatek/built-in.o
+  LD      drivers/input/touchscreen/built-in.o
+  LD      drivers/input/built-in.o
+  CC      drivers/misc/mediatek/accelerometer/mxc400x-new/mxc400x.o
 make[1]: Leaving directory '/home/ruspam18/x5/DOOGEE-kernel-3.18/out'
