@@ -64,18 +64,25 @@ fi
 
 function BANNER() {
 clear
-        echo
-        echo "${GRN}======================================"
-        echo
-        echo "${BLD}${ORNG}H     H IIIIII !"
-        echo "${BLD}${ORNG}H     H   II   !"
-	echo "${BLD}${ORNG}HHHHHHH   II   !"
-	echo "${BLD}${ORNG}H     H   II   !"
-        echo "${BLD}${ORNG}H     H   II   !"
-        echo
-        echo "${PURP}====================================="
-        echo
-        sleep 0.5
+        
+        echo "${BLINK_RED}
+        
+
+▀█████████▄   ▄█          ▄████████  ▄████████    ▄█   ▄█▄    ▄██████▄     ▄█    █▄     ▄██████▄     ▄████████     ███     
+  ███    ███ ███         ███    ███ ███    ███   ███ ▄███▀   ███    ███   ███    ███   ███    ███   ███    ███ ▀█████████▄ 
+  ███    ███ ███         ███    ███ ███    █▀    ███▐██▀     ███    █▀    ███    ███   ███    ███   ███    █▀     ▀███▀▀██ 
+ ▄███▄▄▄██▀  ███         ███    ███ ███         ▄█████▀     ▄███         ▄███▄▄▄▄███▄▄ ███    ███   ███            ███   ▀ 
+▀▀███▀▀▀██▄  ███       ▀███████████ ███        ▀▀█████▄    ▀▀███ ████▄  ▀▀███▀▀▀▀███▀  ███    ███ ▀███████████     ███     
+  ███    ██▄ ███         ███    ███ ███    █▄    ███▐██▄     ███    ███   ███    ███   ███    ███          ███     ███     
+  ███    ███ ███▌    ▄   ███    ███ ███    ███   ███ ▀███▄   ███    ███   ███    ███   ███    ███    ▄█    ███     ███     
+▄█████████▀  █████▄▄██   ███    █▀  ████████▀    ███   ▀█▀   ████████▀    ███    █▀     ▀██████▀   ▄████████▀     ▄████▀   
+             ▀                                   ▀                                                                         
+
+                                                    
+             
+${RST}
+"
+sleep 2
 clear
 }
 
@@ -95,19 +102,19 @@ clear
     echo "${YLW}####################################"
     echo "${GRN}#       CLONING TOOLCHAIN          #"
     echo "${YLW}####################################"
-    git clone -q https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/arm/arm-eabi-4.8 gtc
-    export ARCH=arm CROSS_COMPILE=$PWD/gtc/bin/arm-eabi-
+    git clone -q https://github.com/rockchip-linux/gcc-linaro-6.3.1-2017.05-x86_64_arm-linux-gnueabihf gtc
+    export ARCH=arm CROSS_COMPILE=$PWD/gtc/bin/arm-linux-gnueabihf-
 else
-    export ARCH=arm CROSS_COMPILE=$PWD/gtc/bin/arm-eabi-
+    export ARCH=arm CROSS_COMPILE=$PWD/gtc/bin/arm-linux-gnueabihf-
 fi
 }
 
 function BUILD() {
         mkdir -p out
         echo "${PURP} READING DEFCONFIG..."
-        make X5_6580_defconfig O=out/ | tee defconfig.log
+        make X5_6580_defconfig O=out/ | tee -a defconfig.log
         echo "${YLW} BUILDING KERNEL..." 
-        make -j2 O=out/ | tee Kernel.log
+        make -j2 O=out/ | tee -a Kernel.log
         OIMAGE=out/arch/arm/boot/zImage-dtb
 }
 
